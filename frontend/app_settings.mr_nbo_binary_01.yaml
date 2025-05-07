@@ -1,0 +1,65 @@
+association_id_column_name: association_id
+custom_metric_baselines:
+  confidence: 0.65
+  llm_cost: 0.025
+  prompt_tokens: 225.0
+  readability: 50.0
+  reading_time: 75.0
+  response_tokens: 225.0
+  sentiment: 0.3
+  user_feedback: 0.75
+default_number_of_explanations: 3
+email_prompt: 'MRは医師に訪問する前に、医師が自社の医薬品を処方する可能性があるかどうか参考となる情報をもとめています。
+
+  AIモデルが予測した医師コード{selected_record}の処方可能性は {prediction_label}であることを伝えてください。
+
+  この文章のトーンは {tone}にしてください。長さは{verbosity}にしてください。
+
+  予測の根拠として、以下の要因を考慮に入れてください。:
+
+
+  {rsp}'
+model_spec:
+  input_price_per_1k_tokens: 0.001
+  output_price_per_1k_tokens: 0.002
+no_text_gen_label: null
+outcome_details:
+- description: 医師の処方可能性は低いため訪問に際してはインプットする情報の精査が必要
+  label: 処方可能性は低い
+  prediction: 0
+- description: 医師の処方可能性が高いため医師が適切な情報をもとめている可能性が高い
+  label: 処方可能性は高い
+  prediction: 1
+page_subtitle: '予測AIと生成AIを組み合わせ、処方確率が高い医師の選別をサポートします。
+
+  ドロップダウンから申請を選択して送信するだけです！'
+page_title: MR アドバイザー
+record_identifier:
+  column_name: 医師コード
+  display_name: 医師コード
+system_prompt: 'あなたは、医師を訪問するMRに参考情報を与えるスペシャルアドバイザーです。
+
+  あなたの仕事は、医師の処方確率をもとに、優先的に訪問すべきかどうか決定することです。
+
+  あなたは、医師の処方確率に関する詳細な情報を持っています。
+
+  また、医師の処方可能性を決定する要因のリストも持っています。
+
+  あなたの役割は、処方可能性の情報とその根拠を明確に提示し、これから医師を訪問するMRに参考情報を提供することです。
+
+  MRは日本人なので、回答は日本語で生成してください。
+
+  '
+target_probability_description: 医師の処方可能性
+text_explanation_feature: ''
+tones:
+- 専門的
+- 情報に富んでいる
+- フォーマル
+- 親しみやすい、カジュアル
+- 明るく、面白い
+- ウィットに富み、遊び心がある
+verbosity:
+- short and sweet
+- normal
+- long and detailed

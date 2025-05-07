@@ -1,0 +1,17 @@
+name: runtime-params
+
+runtimeParameterDefinitions:
+- fieldName: GENERATIVE_DEPLOYMENT_ID
+  type: deployment
+
+- fieldName: PRED_AI_DEPLOYMENT_ID
+  type: deployment
+
+- fieldName: CUSTOM_METRIC_IDS
+  type: string
+
+- fieldName: DATASET_ID
+  type: string
+
+- fieldName: APP_LOCALE
+  type: string
